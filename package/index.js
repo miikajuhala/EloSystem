@@ -1,3 +1,37 @@
+
+
+
+
+function chess(p1, p2, winner, K){
+
+    if(!K){K=20} 
+
+    const diff = Math.abs(p1 - p2);
+    const takeoff = (diff/400)
+    const exp =(1+ Math.pow(10, takeoff)) 
+    const expected = 1/exp
+    let rating = K * (1-expected)
+    
+    if(winner===1){
+        p1 =p1 + rating;
+        p2 = p2 - rating
+    }
+    else if(winner===2){
+        p1 = p1-rating
+        p2 = p2+rating
+    }
+    else if(p1>p2){
+        rating= K*(0.5-expected)
+        p1 = p1-rating
+        p2 = p2+rating
+    }
+
+    return({p1, p2, rating: rating})
+}
+
+
+
+
 const defaultElo = 100;
 
 function runningIndex(elo, distance) {
@@ -13,7 +47,7 @@ function runningIndexWithSpeed(elo, distance, minPerKm) {
 }
 
 // kisan jälkeen päivitettävä ongelmana jos monta kisaa missä samat juoksut
-function updateElo(oldElo, placement, eloPa, amountOfParticipants) {
+function runnerElo(oldElo, placement, eloPa, amountOfParticipants) {
     let elo;
     let first = 5;
     let secThird = 2.5
@@ -51,5 +85,4 @@ function updateElo(oldElo, placement, eloPa, amountOfParticipants) {
 
 }
 
-
-module.exports = {runningIndexWithSpeed, updateElo, runningIndex}
+module.exports = {runningIndexWithSpeed,chess, runnerElo, runningIndex}
