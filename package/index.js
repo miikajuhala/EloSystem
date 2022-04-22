@@ -14,11 +14,11 @@ function teamVersusElo(playerElo, playerWon, playersTeamAvgElo, enemyTeamAvgElo)
         elo = playerElo + rating
     }
     else if(playerWon && playerElo<=playersTeamAvgElo){
-        elo = playerElo + rating + expected
+        elo = playerElo + rating + (expected*3)
         
     }
     else if(!playerWon && playerElo>playersTeamAvgElo){
-        elo = playerElo - rating - expected
+        elo = playerElo - rating - (expected*3)
     }
     else if(!playerWon && playerElo<=playersTeamAvgElo){
         elo = playerElo - rating

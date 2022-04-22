@@ -9,4 +9,4 @@ console.log(runnerElo(70, 1, 90, 5))
 
 console.log(chess(1810, 1750,3,20))
 
-console.log(teamVersusElo(651, false,800, 800))
+console.log(teamVersusElo(700, true,800, 800))
