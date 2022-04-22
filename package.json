@@ -1,0 +1,26 @@
+{
+  "name": "elosystems",
+  "version": "1.0.0",
+  "description": "elo rank system",
+  "main": "EloSystem.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miikajuhala/EloSystem.git"
+  },
+  "keywords": [
+    "elo",
+    "rank",
+    "system",
+    "chess",
+    "elosystem"
+  ],
+  "author": "Miika Juhala",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/miikajuhala/EloSystem/issues"
+  },
+  "homepage": "https://github.com/miikajuhala/EloSystem#readme"
+}
