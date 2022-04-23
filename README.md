@@ -1,26 +1,70 @@
 # EloSystem
-elo system for chess, two team multiplayer games and running competitions.
+elo system for any two-team multiplayer game (CSGO etc), chess and running competitions.
 
-usage:
+# Installation:
+### `npm install elosystems`
+for expo:
+### `expo install elosystems`
+:+1::+1::+1::+1:
+-----------------------------------------------------
+# usage:
 
-import { runningIndex, teamVersusElo } from "elosystems";
+### `import { runningIndex, teamVersusElo, chess } from "elosystems";`
 
 OR
 
-const {runningIndex, teamVersusElo} = require("elosystems")
+### `const {runningIndex, teamVersusElo, chess} = require("elosystems")`
+
+-------------------------------------------------------
+
+## 1. Team versus team elo calculation:
+### ***Each player must be looped trough this function individually***
+
+### `teamVersusElo(currentPlayerElo, playerWon, playersTeamAvgElo, enemyTeamAvgElo))`
+
+#### Example:
+ `const updatedElo = teamVersusElo(700, true, 750, 700))`
+returns: `735.5`, as the new elo for the individual player
 
 
 
-let runningIndex = runningIndex(playersElo,  distanceInKm))
+## 2. Chess:
+### `chess(player1Elo, player2Elo, winner(1,2,(3 as draw)), K-factor)`
 
-// attributes: players elo, distance in KM, min/km speed
-runningIndexWithSpeed(100, 20,4)
+#### Example:
+`const newRatings = chess(1810, 1750, 1, 20)`
 
-// attributes: players current elo, placement, AvgElo,amountOfParticipants
-runnerElo(70, 1, 90, 5)
+returns:
+`Object {
+		p1: 1821.7099735734362, 
+		p2: 1738.2900264265638, 
+ 		rating: 11.70997357343619,
+  	expectedValue: 0.4145013213281905
+ }`
+## 3. Running competition system
+***Recommended elo starting value is 100***
+### 3.1 Competitors elo calculation
 
-// attributes: player1 elo, player2 elo, winner "1" or "2",K as a how harsh the system is opt: 20,40,60 
-chess(1810, 1750,3,20)
+### `runnerElo(playerCurrentElo,  placement, avgEloOfCompetition, amountOfParticipants)`
 
-// attributes: playerElo, playerWon true/false, playersTeamAvgElo, enemyTeamAvgElo
-teamVersusElo(700, true,800, 800))
+#### Example: `runnerElo(70, 1, 90, 5)`
+returns: `78`, as the new elo for current individual player
+
+
+ ### 3.2 Running (only distance) index calculation during competition: 
+ ***Index means points in this case, for example more points equals better position in the competition**
+### `runningIndex(playerElo, distanceInKm)`
+
+### Example
+`const playerPoints = runningIndex(100, 30)`
+returns: `20`, as the points for current individual player
+
+### 3.3 Running with speed factor index calculation during competition: 
+ ***Index means points in this case, for example more points equals better position in the competition**
+### `runningIndexWithSpeed(playerElo, distanceInKm, runningPace (min/km)>`
+
+### Example
+`const playerPoints = runningIndex(100, 20, 6)`
+returns: `5`, as the points for current individual player
+
+
