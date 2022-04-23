@@ -17,7 +17,7 @@ OR
 
 -------------------------------------------------------
 
-## 1. Team versus team elo calculation:
+## 1. Team-versus-team elo calculation:
 ### ***Each player must be looped trough this function individually***
 
 ### `teamVersusElo(currentPlayerElo, playerWon, playersTeamAvgElo, enemyTeamAvgElo))`
