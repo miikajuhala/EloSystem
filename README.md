@@ -48,7 +48,7 @@ returns:
 ### `runnerElo(playerCurrentElo,  placement, avgEloOfCompetition, amountOfParticipants)`
 
 #### Example: 
-`runnerElo(70, 1, 90, 5)`, returns: `78`, as the new elo for current individual player
+`const playersNewElo = runnerElo(70, 1, 90, 5)`, returns: `78`, as the new elo for current individual player
 
 
  ### 3.2 Running (by distance) index calculation during competition: 
