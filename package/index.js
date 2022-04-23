@@ -72,7 +72,7 @@ function runningIndex(elo, distance) {
 function runningIndexWithSpeed(elo, distance, minPerKm) {
     if (elo===null) elo = defaultElo;
     const equation = distance * (elo/10) 
-    return (distance - (equation * elo/100)/distance ) / minPerKm
+    return 3 * ((distance - (equation * elo/100)/distance ) / minPerKm)
 }
 
 // kisan jälkeen päivitettävä ongelmana jos monta kisaa missä samat juoksut
