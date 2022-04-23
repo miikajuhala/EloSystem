@@ -53,6 +53,10 @@ function chess(p1, p2, winner, K){
         rating= K*(0.5-expected)
         p1 = p1-rating
         p2 = p2+rating
+    }else if(p1<p2){
+        rating= K*(0.5-expected)
+        p1 = p1+rating
+        p2 = p2-rating
     }
 
     return({p1, p2, rating: rating, expectedValue:expected})
