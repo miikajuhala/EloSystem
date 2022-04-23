@@ -41,7 +41,7 @@ returns:
  		rating: 11.70997357343619,
   	expectedValue: 0.4145013213281905
  }`
-## 3. Running competition system
+## 3. Running competition system:
 ***Recommended elo starting value is 100***
 ### 3.1 Competitors elo calculation
 
