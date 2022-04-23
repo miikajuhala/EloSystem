@@ -43,7 +43,7 @@ returns:
  }`
 ## 3. Running competition system:
 ***Recommended elo starting value is 100***
-### 3.1 Competitors elo calculation
+### 3.1 Competitors elo calculation:
 
 ### `runnerElo(playerCurrentElo,  placement, avgEloOfCompetition, amountOfParticipants)`
 
