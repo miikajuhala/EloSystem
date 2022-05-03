@@ -1,6 +1,6 @@
 {
     "name": "elosystems",
-    "version": "1.0.1",
+    "version": "1.0.7",
     "description": "elo ranking system for: ",
     "main": "index.js",
     "scripts": {

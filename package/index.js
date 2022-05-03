@@ -39,15 +39,17 @@ function chess(p1, p2, winner, K){
     const takeoff = (diff/400)
     const exp =(1+ Math.pow(10, takeoff)) 
     const expected = 1/exp
-    let rating = K * (1-expected)
+    let rating;
     
     if(winner===1){
+        rating = K * (1-expected)
         p1 =p1 + rating;
         p2 = p2 - rating
     }
     else if(winner===2){
-        p1 = p1-rating
-        p2 = p2+rating
+        rating = K * (0-expected)
+        p1 = p1 + rating
+        p2 = p2 - rating
     }
     else if(p1>p2){
         rating= K*(0.5-expected)
@@ -68,9 +70,20 @@ function chess(p1, p2, winner, K){
 const defaultElo = 100;
 
 function runningIndex(elo, distance) {
-    if (elo===null) elo = defaultElo;
+    if (elo === null || elo === ""|| elo === undefined) elo = defaultElo;
     const equation = distance * (elo/10) 
-    return distance - (equation * elo/100)/distance
+    const index = distance - (equation * elo/100)/distance
+    
+    if(distance<=0 || distance===null || distance ==="" || distance === undefined){
+        return 1
+    }
+
+    else if(index<=0) {
+        return 1.5 
+    }
+    else {
+        return index
+    }
 }
 
 function runningIndexWithSpeed(elo, distance, minPerKm) {
